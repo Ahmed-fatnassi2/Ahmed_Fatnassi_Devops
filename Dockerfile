@@ -1,12 +1,9 @@
-FROM openjdk:17
+FROM eclipse-temurin:17-jre
 
 WORKDIR /app
 
-# Copier le JAR généré par Maven
-COPY target/*.jar app.jar
+COPY target/student-management-0.0.1-SNAPSHOT.jar app.jar
 
-# Exposer le port de l'application
 EXPOSE 8080
 
-# Commande pour lancer l'application
 ENTRYPOINT ["java", "-jar", "app.jar"]
